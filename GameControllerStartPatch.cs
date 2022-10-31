@@ -21,7 +21,7 @@ namespace LowLatencyTromboneChamp
 		{
 			if (!Plugin.Instance.areSamplesloaded)
 			{
-				Plugin.Instance.InitTromboneClips(__instance.trombclips.tclips);
+				//Plugin.Instance.InitTromboneClips(__instance.trombclips.tclips);
 			}
 
 			float num = 9999f;
