@@ -36,6 +36,8 @@ namespace LowLatencyTromboneChamp
 			__instance.currentnotesound.Stop();
 
 			Plugin.Instance.PlaySound(Mathf.Abs(num2 - 14));
+			return;
+			
 		}
 	}
 	
@@ -46,6 +48,8 @@ namespace LowLatencyTromboneChamp
 		static void Postfix(GameController __instance)
 		{
 			Plugin.Instance.currentStream?.Stop();
+			__instance.currentnotesound.Stop();
+			return;
 		}
 	}
 	
@@ -60,6 +64,10 @@ namespace LowLatencyTromboneChamp
 			{
 				Plugin.Instance.currentStream?.SetSpeed(__instance.currentnotesound.pitch);
 			}
+			
+			Plugin.Instance.currentStream?.SetVolume(__instance.trombvol_current);
+
+			return;
 		}
 	}
 }
