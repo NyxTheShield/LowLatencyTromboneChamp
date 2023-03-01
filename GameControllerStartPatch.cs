@@ -1,14 +1,8 @@
-﻿using System.Collections;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Security.Permissions;
+﻿using System.Security.Permissions;
 using HarmonyLib;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.PostProcessing;
-using Logger = BepInEx.Logging.Logger;
 
-[assembly: SecurityPermission(System.Security.Permissions.SecurityAction.RequestMinimum, SkipVerification = true)]
+[assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
 
 namespace LowLatencyTromboneChamp
 {
@@ -42,7 +36,6 @@ namespace LowLatencyTromboneChamp
 			__instance.currentnotesound.Stop();
 
 			Plugin.Instance.PlaySound(Mathf.Abs(num2 - 14));
-			return;
 		}
 	}
 	
@@ -53,7 +46,6 @@ namespace LowLatencyTromboneChamp
 		static void Postfix(GameController __instance)
 		{
 			Plugin.Instance.currentStream?.Stop();
-			return;
 		}
 	}
 	
@@ -68,8 +60,6 @@ namespace LowLatencyTromboneChamp
 			{
 				Plugin.Instance.currentStream?.SetSpeed(__instance.currentnotesound.pitch);
 			}
-
-			return;
 		}
 	}
 }
