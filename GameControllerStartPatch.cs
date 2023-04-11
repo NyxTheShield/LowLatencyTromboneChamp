@@ -64,8 +64,9 @@ namespace LowLatencyTromboneChamp
 			{
 				Plugin.Instance.currentStream?.SetSpeed(__instance.currentnotesound.pitch);
 			}
-			
-			Plugin.Instance.currentStream?.SetVolume(__instance.trombvol_current);
+
+			var realVolume = Mathf.Clamp(__instance.trombvol_current, 0, 1);
+			Plugin.Instance.currentStream?.SetVolume(realVolume);
 
 			return;
 		}
